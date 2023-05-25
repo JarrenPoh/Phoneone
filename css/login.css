@@ -1,28 +1,43 @@
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:100vh;
+.left {
+  height: 100vh;
+  background-color: #303061;
+  /* background-color: #bdd1ec; */
+}
+.left img{
+  position: relative;
+  transform: scale(0.6) translateX(-30%);
+  
+}
+.right {
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.right a{
+  color: #4a4a80;
+}
+@media (max-width: 576px) {
+  /* 當螢幕寬度小於等於 576px (sm) 時，圖片高度為螢幕的一半 */
+  .left {
+    height: 50vh;
+    background-color: #303061;
+  }
+  .right {
+    height: 50vh;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 }
 
-.login {
-  background-color: #bdd1ec;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.login img {
-  width: 120px;
-  margin-bottom: 20px;
+.right img{
+  width: 40%;
 }
 
 h2 {
@@ -41,7 +56,7 @@ input {
 
 .submit {
   background-color: #515188;
-  color: #c2c2df;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;

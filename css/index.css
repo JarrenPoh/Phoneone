@@ -8,19 +8,28 @@ p,a,span,li,label{
 	background-color: #bdd1ec;
 }
 .secondary-color{
-	background-color: #5091e6;
+	background-color: #303061;
+}
+.header-color{
+	background-color: #ffffff;
+}
+.nav-text{
+    color: rgb(135, 135, 135) !important; 
+}
+.nav-text:hover{
+    color: rgb(214, 214, 214) !important; 
 }
 img{
 	max-width:100%;
 }
 nav li{
-	    margin: 0 13px;
+	margin: 0 13px;
 }
 #intro .jumbotron{
 	background: url('../pictures/mainbg.png');
 	background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50%;
+    background-position: 0px;
     height: 70vh;
     margin-bottom: 0px;
 }
@@ -80,6 +89,11 @@ p.lead{
 }
 #model .upper{
 	position:relative;
+	background-color: #dbdddd;
+	border-radius: 30px 30px 0px 0px; 
+}
+#model img{
+	height: 400px;
 }
 #model .innertext{
 	position:absolute;
@@ -96,7 +110,7 @@ p.lead{
     margin-top: 18px;
 }
 #model .lower{
-	    padding: 22px;
+	    padding: 20px;
 }
 #model .lower span{
 	color: #343434;
@@ -115,18 +129,16 @@ p.lead{
 }
 #model .outer {
 	display: inline-block;
-	width: 300px;
+	width: 250px;
 	box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
 	padding: 0px;
 	margin: 0 20px;
 	border-radius: 30px;
 }
-#model img{
-	border-radius: 30px 30px 0px 0px; 
-}
 
 #model .lower h3{
 	font-size: 21px;
+	margin-top: 0px;
 	margin-bottom: 20px;
 }
 #model a{
@@ -312,5 +324,11 @@ footer ul{
 	    font-size: 17px;
 	    margin-top: 30px;
 	    margin-bottom: 18px;
+	}
+}
+@media (max-width: 576px) {
+	/* 當螢幕寬度小於等於 576px (sm) 時，圖片高度為螢幕的一半 */
+	.header-color{
+		background-color: #bdd1ec;
 	}
 }
