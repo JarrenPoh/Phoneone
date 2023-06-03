@@ -48,7 +48,7 @@ nav li{
     border-radius: 20px;
     border: none;
 }
-.btn:hover{
+.btn:zover{
 	opacity:0.8;
 	background-color: #2b6ec5;
 }

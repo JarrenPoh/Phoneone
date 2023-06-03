@@ -1,0 +1,83 @@
+.left {
+	height: 100vh;
+	/* background-color: #bdd1ec; */
+  }
+.left .outer {
+	position: relative;
+	width: 400px;
+	max-width: 400px;
+	padding-top: 33.33%;
+	padding: 0px;
+	margin: 20px;
+	border-radius: 30px;
+	border-width: 5px;
+	border: 1px solid rgb(197, 135, 135);
+}
+.left .upper{
+	position: relative;
+	width: 100%;
+	max-width: 200px;
+	padding-top: 33.33%;
+	padding-bottom: 100px;
+	z-index: 1;
+	pointer-events: none;
+}
+.left img{
+	height: auto;
+}
+.left .downer{
+	max-width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.left .draggable {
+	position: relative;
+	background-color: #2a80eb;
+}
+  
+.left .downer.hide {
+    display: none;
+}
+
+.right {
+	height: 100vh;
+	background-color: #ffffff;
+	/* background-color: #bdd1ec; */
+}
+.right .searchBox{
+	height: 35px;
+	width: 20vw;
+	background-color: rgb(211, 211, 211);
+	border-radius: 14px;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
+	margin-bottom: 40px;
+}
+.right .dalle2{
+	height: 200px;
+	width: 200px;
+	background-color: rgb(211, 211, 211);
+	border-radius: 10px;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
+	margin-bottom: 40px;
+}
+.right .scrollable-row {
+	width: 44vw;
+	background-color: #f2c9c9; 
+	overflow-x: scroll;
+	white-space: nowrap;
+	-ms-overflow-style: none;  /* IE 10+ */
+	scrollbar-width: none;  /* Firefox */
+}
+.right .exhibition{
+	display: inline-block;
+	height: 80px;
+	width: 80px;
+	margin: 10px;
+	background-color: aquamarine;
+	border-radius: 10px;
+}
+.scrollable-row::-webkit-scrollbar { /* WebKit */
+	display: none;
+}
+

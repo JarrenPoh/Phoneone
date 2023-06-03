@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Open+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/68f8681dba.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="css/produce.css">
+		<title>Phoneone-produce</title>
+		
+	</head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12 p-0">
+          <div class="column d-flex justify-content-center align-items-center">
+            <div class="left align-items-center justify-content-center d-flex">
+              <div class="column">
+                <div class="outer">
+                  <div id="draggable-elem" class="draggable">
+                    <img class="downer" src='pictures/mona1.png'>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center ">
+                    <img class="upper d-flex" src='model/transparentPhone.png' draggable="false">
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button id="editButton">編輯</button>
+                  <button id="previewButton">預覽</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12 text-center p-0">
+          <div class="right justify-content-center align-items-center d-flex">
+            <div" class="column">
+              <div class="row d-flex justify-content-center">
+                <form class="searchBox d-flex align-items-center justify-content-start pl-3" type="submit">
+                  <i class="fa fa-search"></i>
+                </form>
+                
+              </div>
+              <div class="row d-flex ">
+                <div class="col-sm-6 d-flex justify-content-end">
+                  <div class="dalle2">
+
+                  </div>
+                </div>
+                <div class="col-sm-6 d-flex justify-content-start">
+                  <div class="dalle2">
+
+                  </div>
+                </div>
+              </div>
+              <div class="row d-flex ">
+                <div class="col-sm-6 d-flex justify-content-end">
+                  <div class="dalle2">
+
+                  </div>
+                </div>
+                <div class="col-sm-6 d-flex justify-content-start">
+                  <div class="dalle2">
+
+                  </div>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <div class="scrollable-row ">
+                  <div class="exhibition">
+
+                  </div>
+                  <div class="exhibition">
+                    
+                  </div>
+                  <div class="exhibition">
+                    
+                  </div>
+                  <div class="exhibition">
+                    
+                  </div> 
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+		$(document).ready(function () {
+			$('.scrollable-row').on('mousedown', function (e) {
+				e.preventDefault();
+				$(this).addClass('grabbing');
+				var startX = e.pageX - $(this).scrollLeft();
+				$(this).on('mousemove', function (e) {
+					var x = e.pageX - startX;
+					$(this).scrollLeft(x);
+				});
+			}).on('mouseup', function () {
+				$(this).removeClass('grabbing');
+				$(this).off('mousemove');
+			});
+		});
+
+	</script>
+
+  <script src="js/script.js"></script>
+
+  <!-- <script type="module">
+    import onlyImgResize from '../js/onlyImgResize.js';
+
+    onlyImgResize({minWidth: 100});
+
+  </script> -->
+</html>
