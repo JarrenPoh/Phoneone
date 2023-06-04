@@ -56,11 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
       canvas.width = upper.offsetWidth;
       canvas.height = upper.offsetHeight;
   
-      // 繪製上層圖片
-      context.drawImage(upper, 0, 0);
-  
+      context.translate(100, 100);
       // 繪製下層圖片
-      context.drawImage(downer, 0, 0);
+      context.drawImage(downer, 0, 0, downer.width, downer.height);
+      
+      context.translate(-100, -100);
+      // 繪製上層圖片
+      context.drawImage(upper, 0, 0, upper.width, upper.height);
   
       // 取得合成後的圖片 URL
       var compositeImageURL = canvas.toDataURL();
@@ -71,25 +73,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// 先点击图片，进入可拉伸状态
+// 先點擊編輯，进入可拉伸状态
 document.addEventListener('DOMContentLoaded', function() {
     var editButton = document.getElementById('editButton');
+    var previewButton = document.getElementById('previewButton');
     var downer = document.querySelector('.downer');
     var isActive = false;
-  
-    editButton.addEventListener('click', function() {
-      isActive = !isActive; // 切換狀態
-  
-      if (isActive) {
-        downer.classList.add('active');
-        editButton.textContent = '取消';
-        // 進入拉伸狀態的相應程式碼
-      } else {
-        downer.classList.remove('active');
-        editButton.textContent = '編輯';
-        // 退出拉伸狀態的相應程式碼
-      }
-    });
+    
+    // 先點擊編輯，进入可拉伸状态
+    editButton.onclick = ()=>{
+        isActive = !isActive; // 切換狀態
+      
+        if (isActive) {
+          downer.classList.add('active');
+          editButton.textContent = '取消';
+          // 進入拉伸狀態的相應程式碼
+        } else {
+          downer.classList.remove('active');
+          editButton.textContent = '編輯';
+          // 退出拉伸狀態的相應程式碼
+        }
+    }
+
+    //點擊預覽
+    previewButton.onclick = ()=>{
+        document.querySelector('.popup-image').style.display = 'block';
+    }
+    //取消預覽
+    document.querySelector('.popup-image span').onclick =() =>{
+        document.querySelector('.popup-image').style.display = 'none';
+    }
+
+
   });
 
 //Events Object

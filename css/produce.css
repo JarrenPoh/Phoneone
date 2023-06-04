@@ -81,3 +81,41 @@
 	display: none;
 }
 
+.popup-image{
+	position: fixed;
+	top: 0; left: 0;
+	background-color: rgba(0, 0, 0, .9);
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+	display: none;
+}
+
+.popup-image span{
+	position: absolute;
+	top: 0; right: 10px;
+	font-size: 40px;
+	font-weight: bolder;
+	color: #fff;
+	cursor: pointer;
+	z-index: 100;
+}
+
+.popup-image img{
+	width: 50%;
+	max-width: 300px;
+	padding-top: 33.33%;
+	padding-bottom: 30%;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	width: 750px;
+	object-fit: cover;
+	background-color: #2a80eb;
+}
+
+@media(max-width: 768px){
+	.container .popup-image img{
+		width: 95%;
+	}
+}
