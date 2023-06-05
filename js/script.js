@@ -43,38 +43,41 @@ var strSvg = "data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 3
 eleStyle.innerHTML = strSelectorImg + '{display:inline-block;vertical-align: bottom;font-size:12px;border: 3px solid transparent;margin:-1px;position: relative;-webkit-user-select: none; user-select: none; }' + strSelectorActive + '{border-image: url("' + strSvg + '") 12 / 12px / 0; cursor: default; z-index: 1;}';
 document.head.appendChild(eleStyle);
 
-document.addEventListener('DOMContentLoaded', function() {
-    var upper = document.querySelector('.upper');
-    var downer = document.querySelector('.downer');
-    var previewButton = document.getElementById('previewButton');
+// document.addEventListener('DOMContentLoaded', function() {
   
-    previewButton.addEventListener('click', function() {
-      var canvas = document.createElement('canvas');
-      var context = canvas.getContext('2d');
+//     previewButton.addEventListener('click', function() {
+//       var canvas = document.createElement('canvas');
+//       var context = canvas.getContext('2d');
       
-      // 設定 canvas 的寬度和高度
-      canvas.width = upper.offsetWidth;
-      canvas.height = upper.offsetHeight;
+//       // 設定 canvas 的寬度和高度
+//       canvas.width = upper.offsetWidth;
+//       canvas.height = upper.offsetHeight;
   
-      context.translate(100, 100);
-      // 繪製下層圖片
-      context.drawImage(downer, 0, 0, downer.width, downer.height);
+//       // 繪製下層圖片
+//       context.drawImage(
+//         downer, 
+//         0, 0, //從downer的x,y開始畫
+//         714,1280, //畫downer多大
+//         0,0, //從新圖片的x,y開始畫
+//         714, 2000, //畫多大
+//       );
       
-      context.translate(-100, -100);
-      // 繪製上層圖片
-      context.drawImage(upper, 0, 0, upper.width, upper.height);
+//       // 繪製上層圖片
+//       context.drawImage(upper, 0, 0, upper.width, upper.height);
   
-      // 取得合成後的圖片 URL
-      var compositeImageURL = canvas.toDataURL();
+//       // 取得合成後的圖片 URL
+//       var compositeImageURL = canvas.toDataURL();
   
-      // 預覽合成後的圖片
-      var previewWindow = window.open();
-      previewWindow.document.write('<img src="' + compositeImageURL + '">');
-    });
-});
+//       // 預覽合成後的圖片
+//       var previewWindow = window.open();
+//       previewWindow.document.write('<img src="' + compositeImageURL + '">');
+//     });
+// });
 
 // 先點擊編輯，进入可拉伸状态
 document.addEventListener('DOMContentLoaded', function() {
+    var upper = document.querySelector('.upper');
+    var downer = document.querySelector('.downer');
     var editButton = document.getElementById('editButton');
     var previewButton = document.getElementById('previewButton');
     var downer = document.querySelector('.downer');
@@ -97,6 +100,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //點擊預覽
     previewButton.onclick = ()=>{
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext('2d');
+        
+        // 設定 canvas 的寬度和高度
+        canvas.width = upper.offsetWidth;
+        canvas.height = upper.offsetHeight;
+    
+        // 繪製下層圖片
+        context.drawImage(
+            downer, 
+            0, 0, //從downer的x,y開始畫
+            714,1280, //畫downer多大
+            0,0, //從新圖片的x,y開始畫
+            714, 2000, //畫多大
+        );
+        
+        // 繪製上層圖片
+        context.drawImage(upper, 0, 0, upper.width, upper.height);
+    
+        // 取得合成後的圖片 URL
+        var compositeImageURL = canvas.toDataURL();
+    
+        const preview = document.querySelector('.popup-image');
+        const img = preview.querySelector('img');
+        img.src = compositeImageURL;
         document.querySelector('.popup-image').style.display = 'block';
     }
     //取消預覽
