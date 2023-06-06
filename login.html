@@ -26,7 +26,7 @@
             <div class="column">
               <img src="photo/logo.png" alt="logo">
               <h2>會員登入</h2>
-              <form method="post" action="">
+              <form method="post" action="" id="loginForm">
                 電子郵件：<input type="email" name="email"><br>
                 密碼：<input type="password" name="password"><br>
                 <input type="submit" value="登入" class="submit">
@@ -42,4 +42,18 @@
       </div>
     </div>
   </body>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault(); 
+      var email = document.getElementsByName("email")[0].value;
+      var password = document.getElementsByName("password")[0].value;
+  
+      var name = "PhoneOne"; 
+      window.location.href = "index.html?name=" + encodeURIComponent(name);
+    }
+  
+    var loginForm = document.getElementById("loginForm");
+    loginForm.addEventListener("submit", handleLogin);
+  </script>
 </html>
