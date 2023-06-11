@@ -104,20 +104,21 @@ document.addEventListener('DOMContentLoaded', function() {
         var context = canvas.getContext('2d');
         
         // 設定 canvas 的寬度和高度
-        canvas.width = upper.offsetWidth;
-        canvas.height = upper.offsetHeight;
-    
+        canvas.width = upper.width-4;
+        canvas.height = upper.height;
+        
         // 繪製下層圖片
         context.drawImage(
             downer, 
-            0, 0, //從downer的x,y開始畫
-            714,1280, //畫downer多大
-            0,0, //從新圖片的x,y開始畫
-            714, 2000, //畫多大
+            -100, 0, //從downer的x,y開始畫
+            380,380, //話來源的多少長寬
         );
-        
+
         // 繪製上層圖片
-        context.drawImage(upper, 0, 0, upper.width, upper.height);
+        context.drawImage(upper,
+            0, 0,
+            upper.width, upper.height,
+        );
     
         // 取得合成後的圖片 URL
         var compositeImageURL = canvas.toDataURL();

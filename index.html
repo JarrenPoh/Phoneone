@@ -12,6 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="css/index.css">
 		<link rel="stylesheet" href="css/aboutus.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 		<title>Phoneone AI幫你畫手機殼</title>
 		
 	</head>
@@ -36,6 +37,9 @@
 					</li>
 					<li class="nav-item">
 					  <a class="nav-link nav-text" href="#introduction">DALL·E2</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link nav-text" href="#review">評論區</a>
 					</li>
 					<li class="nav-item">
 					  <a class="nav-link nav-text" href="#aboutus">關於我們</a>
@@ -217,6 +221,83 @@
 			    <div>
 	        </div>
         </section> 
+
+		<section id="review">
+			<div class="container-fuild">
+				<div class="row">
+					<div class="col-md-8 offset-md-2 text-center">
+						<h3>商品評論</h3>
+						<!-- 評論列表 -->
+						<div class="row">
+							<!-- 其他人的評論們 -->
+							<div class="col-md-12">
+								<div class="review-box mb-5">
+									<header>其它評論</header>
+									<div class="row mb-1">
+										<div class="col-md-3 text-left">
+											<p id="reviewName"> </p>
+										</div>
+									</div>
+									<div class="row mb-5">
+										<div class="col-md-2">
+											<button type="button" class="rightBtn" id="lastComment">
+												<i class="fa fa-chevron-left"></i> 
+											</button>
+										</div>
+										<div class="col-md-8 text-left" id="reviewComment">
+											
+										</div>
+										<div class="col-md-2">
+											<button type="button" class="rightBtn" id="nextComment">
+												<i class="fa fa-chevron-right"></i> 
+											</button>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-5 text-left" id="reviewDate">
+											<p></p>
+										</div>
+										<div class="col-md-2"></div>
+										<div class="col-md-5 d-flex justify-content-end" id="reviewStar">
+											<i class="fa-solid fa-star rstar" style="color:#ff9c1a"></i>
+									  		<i class="fa-solid fa-star rstar" style="color:#ff9c1a"></i>
+									  		<i class="fa-solid fa-star rstar" style="color:#ff9c1a"></i>
+									  		<i class="fa-solid fa-star rstar" style="color:#ff9c1a"></i>
+									  		<i class="fa-solid fa-star rstar" style="color:#ff9c1a"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 其他人的評論們 -->
+
+							<div class="col-md-8 offset-md-2">
+								<div class="rating-box mb-5">
+									<header>留下你的評論</header>
+									<div class="stars d-flex justify-content-center">
+									  <i class="fa-solid fa-star"></i>
+									  <i class="fa-solid fa-star"></i>
+									  <i class="fa-solid fa-star"></i>
+									  <i class="fa-solid fa-star"></i>
+									  <i class="fa-solid fa-star"></i>
+									</div>
+									<form action="#">
+										<div class="textarea pt-4">
+											<textarea name="" id="" cols="30" placeholder="留下你想說的話">
+												
+											</textarea>
+										</div>
+										<div class="btn">
+											 <button type="submit">Post</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		  
 
         <section id='aboutus'>
 	        <div class="container-fuild">
@@ -413,6 +494,102 @@
 			$(document).on('mouseup', function () {
 				$('.scrollable-row').removeClass('grabbing');
 				$(document).off('mousemove');
+			});
+		});
+	</script>
+
+	<!-- 評論 -->
+	<script>
+		// 假設你有一個包含所有評論內容的數組
+		var comments = [
+			"第一個評論",
+			"第二個評論",
+			"第三個評論",
+			// 其他評論...
+		];
+		var names = [
+			"poh jarren",
+			"foodone one",
+			"phone one",
+		];
+		var dates = [
+			"2023-0607 1:13",
+			"2023-0608 5:08",
+			"2023-0609 2:47",
+		];
+		var stars = [
+			1,
+			2,
+			3,
+		];
+
+		// 獲取按鈕元素
+		var nextBtn = document.getElementById("nextComment");
+		var lastBtn = document.getElementById("lastComment");
+
+		// 當按鈕被點擊時執行的函數
+		nextBtn.addEventListener("click", showNextComment);
+		lastBtn.addEventListener("click", showLastComment);
+
+		// 頁面載入時顯示第一個評論
+		showComment(0);
+
+		function showNextComment() {
+			var currentIndex = getCurrentIndex();
+			var nextIndex = (currentIndex + 1) % comments.length;
+			showComment(nextIndex);
+		}
+
+		function showLastComment() {
+			var currentIndex = getCurrentIndex();
+			var lastIndex = (currentIndex - 1 + comments.length) % comments.length;
+			showComment(lastIndex);
+		}
+
+		function showComment(index) {
+			var reviewName = document.getElementById("reviewName");
+			var reviewDate = document.getElementById("reviewDate");
+			var reviewComment = document.getElementById("reviewComment");
+			var reviewStar = document.getElementById("reviewStar");
+
+			reviewName.innerText = names[index];
+			reviewDate.innerText = dates[index];
+			reviewComment.innerText = comments[index];
+
+			reviewStar.innerHTML = ""; // 清空星星容器內的內容
+
+			for (var i = 0; i < 5; i++) {
+				var star = document.createElement("i");
+				star.classList.add("fa-solid", "fa-star", "rstar");
+
+				if (i < stars[index]) {
+					star.style.color = "#ff9c1a"; // 將前幾顆星星設置為自定義的黃色
+				} else {
+					star.style.color = "#e6e6e6"; // 將後面的星星設置為自定義的灰色
+				}
+
+				reviewStar.appendChild(star);
+			}
+		}
+
+		function getCurrentIndex() {
+			var reviewDate = document.getElementById("reviewDate");
+			var currentIndex = dates.indexOf(reviewDate.innerText.trim());
+			return currentIndex;
+		}
+
+	</script>
+
+	<!-- 星星評分 -->
+	<script>
+		
+		const stars2 = document.querySelectorAll(".stars i");
+
+		stars2.forEach((star, index1) => {
+			star.addEventListener("click", () => {
+				stars2.forEach((star, index2) => {
+				index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+				});
 			});
 		});
 	</script>

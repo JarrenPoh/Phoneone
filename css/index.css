@@ -42,13 +42,13 @@ nav li{
 #intro .btn{
 	margin-top: 20px;
 }
-.btn{
+#intro .btn{
     background-color: #5091e6;
     padding: 7px 28px;
     border-radius: 20px;
     border: none;
 }
-.btn:hover{
+#intro .btn:hover{
 	opacity:0.8;
 	background-color: #2b6ec5;
 }
@@ -58,7 +58,7 @@ nav li{
 	box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
 	margin: 0 5px;
 }
-#introduction h3, #model h3{
+#introduction h3, #model h3, #review h3{
 	margin-top: 40px;
 	margin-bottom: 40px;
 	font-size: 32px;
@@ -163,6 +163,9 @@ footer{
 #email .btn{
 	margin-top: 10px;
 	font-size: 16px;
+}
+footer{
+	background-color: rgb(248, 248, 248);
 }
 footer{
 	border-top: 1px solid rgba(0,0,0,0.09);
@@ -313,6 +316,7 @@ footer ul{
 	display:inline-block;
 	margin-right: 4px;
 }
+
 @media only screen and (max-width: 768px) {
 	#introduction h5 {
 	    margin-bottom: 50px;
@@ -334,7 +338,7 @@ footer ul{
 }
 
 
-  .ad-banner {
+.ad-banner {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -343,4 +347,93 @@ footer ul{
     padding: 10px;
     text-align: center;
     font-size: 18px;
-  }
+}
+
+#review .container-fuild{
+	background-color: rgb(248, 248, 248);
+}
+#review .rating-box {
+	position: relative;
+	background: #fff;
+	padding: 25px 50px 35px;
+	border-radius: 25px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+#review .review-box {
+	position: relative;
+	background: #fff;
+	padding: 25px 50px 35px;
+	border-radius: 25px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+#review .rating-box header {
+	font-size: 22px;
+	color: #dadada;
+	font-weight: 500;
+	margin-bottom: 20px;
+	text-align: center;
+}
+#review .rating-box .stars {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+}
+#review .stars i {
+	color: #e6e6e6;
+	font-size: 35px;
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+#review .stars i.active {
+	color: #ff9c1a;
+}
+#review .rstar{
+	color: #ff9c1a;
+}
+#review form .textarea{
+	height: 100px;
+	width: 100%;
+	overflow: hidden;
+}
+#review form .textarea textarea{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	color: #000000;
+	border: 1px solid #e6e6e6;
+	background: #ffffff;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 17px;
+	resize: none;
+}
+#review form .btn{
+	height: 45px;
+	width: 100%;
+	margin: 15px 0;
+}
+#review .rightBtn{
+	height: 50px;
+	width: 50px;
+	color: #303061;
+	border: 1px solid #e0e0ff;
+	background-color: #e0e0ff;
+	border-radius: 8px;
+}
+#review .btn button{
+	height: 100%;
+	width: 50%;
+	border: 1px solid #444;
+	outline: none;
+	background: #303061;
+	color: #ffffff;
+	border-radius: 5px;
+	font-size: 13px;
+	font-weight: 500;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+#review form .btn button:hover{
+	background: #5f5f83;
+}
